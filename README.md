@@ -42,43 +42,52 @@ Además, incluye validación de datos usando try y except para evitar errores cu
 print("="*65)
 print("REGISTRO DE VENTAS".center(65))
 print("="*65)
-#1 solicitamos los datos al usuario
-nombre = input("ingrese su nombre: ")
 
+# Solicitamos los datos al usuario
+nombre = input("ingrese el nombre del producto: ")
 print("-"*65)
-#2 usamos try para validar que el usuario ingrese el dato valido y usamos while true para que lo pueda intentar nuevamente
 
+# Usamos try para validar que el usuario ingrese el dato valido y usamos while true para que lo pueda intentar nuevamente
 while True:
    try:
     precio = float(input("ingrese el precio del producto: "))
     print("-"*65)
     cantidad = int(input("ingrese la cantidad: "))
+    
+    if cantidad <= 0 or precio <= 0:
+      print("El valor no puede ser igual o menor a 0")
+    
+    else:
+        # Creamos una variable llamada costo_total para calcular el total entre precio y cantidad multiplicando precio por cantidad
+        costo_total = precio * cantidad # Operacion matematica
+        break
 
-#3 creamos una variable llamada costo_total para calcular el total entre precio y cantidad multiplicando precio por cantidad
-    costo_total = precio * cantidad
-    break
+   # Si la persona escribe algo diferente a un numero le aparece esto:
    except:
-    print("el dato ingresado debe ser un valor numerico, intente nuevamente")
+    print("El dato ingresado debe ser un valor numerico, intente nuevamente")
 
-#4 por ultimo imprimo el resultado en pantalla con print y usamos la f para meter variables dentro de la cadena de texto
+# Por ultimo imprimo el resultado en pantalla con print y usamos la f para meter variables dentro de la cadena de texto
 print("="*65)
-print(f"Nombre: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
+print(f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
 print("="*65)
+
+# El programa pide datos de un producto como el nombre del producto, su precio, cantidad y el costo total que es el resultado de la operacion matematica
 
 ```
 
 ## Representacion en consola:
 ```
-============================================================
-                     REGISTRO DE VENTAS                     
-============================================================
-Ingrese su nombre: Juan
-------------------------------------------------------------
-Ingrese el precio del producto: 3000
-Ingrese la cantidad: 4
-============================================================
-Nombre: Juan | Precio: 3000.0 | Cantidad: 4 | Total: 12000.0
-============================================================
+=================================================================
+                        REGISTRO DE VENTAS                       
+=================================================================
+ingrese el nombre del producto: Lapiz
+-----------------------------------------------------------------
+ingrese el precio del producto: 3000
+-----------------------------------------------------------------
+ingrese la cantidad: 7
+=================================================================
+Producto: Lapiz | Precio: 3000.0 | Cantidad: 7 | Total: 21000.0
+=================================================================
 ```
 
 ## Autores
